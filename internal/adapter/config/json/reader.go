@@ -6,17 +6,17 @@ import (
 	"os"
 )
 
-type Reader struct {
+type ConfigReader struct {
 	filepath string
 }
 
-func New(filepath string) *Reader {
-	return &Reader{
+func New(filepath string) *ConfigReader {
+	return &ConfigReader{
 		filepath: filepath,
 	}
 }
 
-func (r *Reader) ReadConfig() (*entity.Config, error) {
+func (r *ConfigReader) ReadConfig() (*entity.Config, error) {
 	data, err := os.ReadFile(r.filepath)
 	if err != nil {
 		return nil, err

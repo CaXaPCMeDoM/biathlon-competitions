@@ -5,17 +5,17 @@ import (
 	"os"
 )
 
-type Reader struct {
+type EventReader struct {
 	filepath string
 }
 
-func NewReader(filepathEvents string) *Reader {
-	return &Reader{
+func NewReader(filepathEvents string) *EventReader {
+	return &EventReader{
 		filepath: filepathEvents,
 	}
 }
 
-func (r *Reader) ReadLines() ([]string, error) {
+func (r *EventReader) ReadLines() ([]string, error) {
 	file, err := os.Open(r.filepath)
 	if err != nil {
 		return nil, err
