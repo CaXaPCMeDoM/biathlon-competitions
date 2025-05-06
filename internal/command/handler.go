@@ -2,8 +2,8 @@ package command
 
 import (
 	"biathlon-competitions/internal/entity"
+	"biathlon-competitions/internal/infrastructure"
 	"biathlon-competitions/internal/input"
-	"biathlon-competitions/internal/port"
 	"biathlon-competitions/internal/usecase"
 	"biathlon-competitions/internal/usecase/event"
 	"biathlon-competitions/internal/usecase/result"
@@ -18,8 +18,8 @@ type Handler struct {
 }
 
 func NewHandler(
-	configReader port.ReaderConfig,
-	eventsReader port.ReaderEvents,
+	configReader infrastructure.ReaderConfig,
+	eventsReader infrastructure.ReaderEvents,
 ) *Handler {
 	return &Handler{
 		configInput:     input.NewConfig(configReader),

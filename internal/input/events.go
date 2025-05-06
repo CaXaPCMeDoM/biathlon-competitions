@@ -2,16 +2,16 @@ package input
 
 import (
 	"biathlon-competitions/internal/entity"
+	"biathlon-competitions/internal/infrastructure"
 	"biathlon-competitions/internal/parser"
-	"biathlon-competitions/internal/port"
 	"fmt"
 )
 
 type Event struct {
-	reader port.ReaderEvents
+	reader infrastructure.ReaderEvents
 }
 
-func NewEvent(reader port.ReaderEvents) *Event {
+func NewEvent(reader infrastructure.ReaderEvents) *Event {
 	return &Event{
 		reader: reader,
 	}

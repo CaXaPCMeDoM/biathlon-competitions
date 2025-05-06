@@ -2,14 +2,14 @@ package input
 
 import (
 	"biathlon-competitions/internal/entity"
-	"biathlon-competitions/internal/port"
+	"biathlon-competitions/internal/infrastructure"
 )
 
 type Config struct {
-	reader port.ReaderConfig
+	reader infrastructure.ReaderConfig
 }
 
-func NewConfig(reader port.ReaderConfig) *Config {
+func NewConfig(reader infrastructure.ReaderConfig) *Config {
 	return &Config{
 		reader: reader,
 	}

@@ -9,7 +9,7 @@ type EventReader struct {
 	filepath string
 }
 
-func NewReader(filepathEvents string) *EventReader {
+func NewEventReader(filepathEvents string) *EventReader {
 	return &EventReader{
 		filepath: filepathEvents,
 	}

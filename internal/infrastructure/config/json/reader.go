@@ -10,7 +10,7 @@ type ConfigReader struct {
 	filepath string
 }
 
-func New(filepath string) *ConfigReader {
+func NewConfigReader(filepath string) *ConfigReader {
 	return &ConfigReader{
 		filepath: filepath,
 	}

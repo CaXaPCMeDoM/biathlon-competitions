@@ -1,16 +1,16 @@
 package app
 
 import (
-	"biathlon-competitions/internal/adapter/config/json"
-	"biathlon-competitions/internal/adapter/events/file"
 	"biathlon-competitions/internal/command"
+	"biathlon-competitions/internal/infrastructure/config/json"
+	"biathlon-competitions/internal/infrastructure/events/file"
 	"biathlon-competitions/internal/output"
 	"fmt"
 )
 
 func Run(configPath, eventsPath string, writer output.Writer) error {
-	configReader := json.New(configPath)
-	eventsReader := file.NewReader(eventsPath)
+	configReader := json.NewConfigReader(configPath)
+	eventsReader := file.NewEventReader(eventsPath)
 
 	handler := command.NewHandler(configReader, eventsReader)
 
