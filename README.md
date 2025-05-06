@@ -4,11 +4,15 @@
 ```
  go run ./cmd/app/main.go
 ```
+Базово берет конфиг и ивент из -config="./sunny_5_skiers/config.json" -events="./sunny_5_skiers/events" - можно прописать при запуске
 ### Режим вывода в файл
 Прописываем путь до файлов вывода в параметрах
 ```
  go run ./cmd/app/main.go -config="./sunny_5_skiers/config.json" -events="./sunny_5_skiers/events" -output-log="./result/output.log" -results="./result/results"
 ```
+
+# Тесты
+Unit-тесты написаны для ./internal/utils/handlers
 
 # System prototype for biathlon competitions
 The prototype must be able to work with a configuration file and a set of external events of a certain format.
