@@ -5,6 +5,8 @@ import (
 	"time"
 )
 
+//go:generate mockgen -source=contracts.go -destination=mocks/mock.go
+
 type EventHandler interface {
 	Handle(event *entity.Event, comp Competitor, logger EventLogger) error
 }
