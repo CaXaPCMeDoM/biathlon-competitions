@@ -1,7 +1,8 @@
-package events
+package events_test
 
 import (
 	"biathlon-competitions/internal/entity"
+	"biathlon-competitions/internal/utils/handlers/events"
 	mocks "biathlon-competitions/internal/utils/handlers/mocks"
 	"testing"
 	"time"
@@ -17,7 +18,7 @@ func TestTargetHitHandler_Handle(t *testing.T) {
 	mockCompetitor := mocks.NewMockCompetitor(ctrl)
 	mockLogger := mocks.NewMockEventLogger(ctrl)
 
-	handler := &TargetHitHandler{}
+	handler := &events.TargetHitHandler{}
 
 	// Test case 1: Valid target parameter
 	t.Run("valid target parameter", func(t *testing.T) {

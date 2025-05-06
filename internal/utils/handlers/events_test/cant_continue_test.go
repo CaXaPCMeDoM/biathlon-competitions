@@ -1,7 +1,8 @@
-package events
+package events_test
 
 import (
 	"biathlon-competitions/internal/entity"
+	"biathlon-competitions/internal/utils/handlers/events"
 	mocks "biathlon-competitions/internal/utils/handlers/mocks"
 	"testing"
 	"time"
@@ -17,7 +18,7 @@ func TestCantContinueHandler_Handle(t *testing.T) {
 	mockCompetitor := mocks.NewMockCompetitor(ctrl)
 	mockLogger := mocks.NewMockEventLogger(ctrl)
 
-	handler := &CantContinueHandler{}
+	handler := &events.CantContinueHandler{}
 
 	//Test case 1: Competitor can't continue with a reason
 	t.Run("with reason", func(t *testing.T) {

@@ -1,7 +1,8 @@
-package events
+package events_test
 
 import (
 	"biathlon-competitions/internal/entity"
+	"biathlon-competitions/internal/utils/handlers/events"
 	mocks "biathlon-competitions/internal/utils/handlers/mocks"
 	"testing"
 	"time"
@@ -10,28 +11,29 @@ import (
 	"go.uber.org/mock/gomock"
 )
 
-func TestStartLineHandler_Handle(t *testing.T) {
+func TestRegistrationHandler_Handle(t *testing.T) {
 	ctrl := gomock.NewController(t)
 	defer ctrl.Finish()
 
 	mockCompetitor := mocks.NewMockCompetitor(ctrl)
 	mockLogger := mocks.NewMockEventLogger(ctrl)
 
-	handler := &StartLineHandler{}
+	handler := &events.RegistrationHandler{}
 
-	// Test case: Competitor is on the start line
-	t.Run("competitor is on the start line", func(t *testing.T) {
+	// Test case: Competitor registers
+	t.Run("competitor registers", func(t *testing.T) {
 		timestamp := time.Now()
 		competitorID := 1
 		event := &entity.Event{
 			Timestamp:    timestamp,
-			EventID:      entity.EventOnStartLine,
+			EventID:      entity.EventRegistered,
 			CompetitorID: competitorID,
 		}
 
-		mockCompetitor.EXPECT().SetEventOccurred(entity.EventOnStartLine)
+		mockCompetitor.EXPECT().SetRegistered(true)
+		mockCompetitor.EXPECT().SetEventOccurred(entity.EventRegistered)
 		mockLogger.EXPECT().LogEvent(event, gomock.Eq(
-			"The competitor(1) is on the start line"))
+			"The competitor(1) registered"))
 
 		err := handler.Handle(event, mockCompetitor, mockLogger)
 

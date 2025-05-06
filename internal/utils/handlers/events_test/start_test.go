@@ -1,7 +1,8 @@
-package events
+package events_test
 
 import (
 	"biathlon-competitions/internal/entity"
+	"biathlon-competitions/internal/utils/handlers/events"
 	mocks "biathlon-competitions/internal/utils/handlers/mocks"
 	"testing"
 	"time"
@@ -17,7 +18,7 @@ func TestStartedHandler_Handle(t *testing.T) {
 	mockCompetitor := mocks.NewMockCompetitor(ctrl)
 	mockLogger := mocks.NewMockEventLogger(ctrl)
 
-	handler := &StartedHandler{}
+	handler := &events.StartedHandler{}
 
 	// Test case 1: Competitor starts with current lap 0 (first lap)
 	t.Run("competitor starts first lap", func(t *testing.T) {

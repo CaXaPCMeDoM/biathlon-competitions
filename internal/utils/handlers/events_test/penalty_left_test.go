@@ -1,7 +1,8 @@
-package events
+package events_test
 
 import (
 	"biathlon-competitions/internal/entity"
+	"biathlon-competitions/internal/utils/handlers/events"
 	mocks "biathlon-competitions/internal/utils/handlers/mocks"
 	"testing"
 	"time"
@@ -17,7 +18,7 @@ func TestLeftPenaltyHandler_Handle(t *testing.T) {
 	mockCompetitor := mocks.NewMockCompetitor(ctrl)
 	mockLogger := mocks.NewMockEventLogger(ctrl)
 
-	handler := &LeftPenaltyHandler{}
+	handler := &events.LeftPenaltyHandler{}
 
 	//Test case 1: Competitor leaves penalty lap after entering one
 	t.Run("competitor leaves penalty lap after entering", func(t *testing.T) {

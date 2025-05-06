@@ -1,7 +1,8 @@
-package events
+package events_test
 
 import (
 	"biathlon-competitions/internal/entity"
+	"biathlon-competitions/internal/utils/handlers/events"
 	mocks "biathlon-competitions/internal/utils/handlers/mocks"
 	"testing"
 	"time"
@@ -19,7 +20,7 @@ func TestEndedLapHandler_Handle(t *testing.T) {
 	ctrl := gomock.NewController(t)
 	defer ctrl.Finish()
 
-	handler := &EndedLapHandler{}
+	handler := &events.EndedLapHandler{}
 
 	//Test case 1: Logger implements LapCompletionChecker
 	t.Run("logger implements LapCompletionChecker", func(t *testing.T) {
