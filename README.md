@@ -1,3 +1,15 @@
+# Как запускать?
+### Режим вывода в консоль
+Если не указать в параметрах запуск путь до output-log и results файлов, то вывод будет в консоль.
+```
+ go run ./cmd/app/main.go
+```
+### Режим вывода в файл
+Прописываем путь до файлов вывода в параметрах
+```
+ go run ./cmd/app/main.go -config="./sunny_5_skiers/config.json" -events="./sunny_5_skiers/events" -output-log="./result/output.log" -results="./result/results"
+```
+
 # System prototype for biathlon competitions
 The prototype must be able to work with a configuration file and a set of external events of a certain format.
 Solution should contain golang (1.20 or newer) source file/files and unit tests (optional)
